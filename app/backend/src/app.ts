@@ -1,8 +1,8 @@
 import * as express from 'express';
-import LoginRouter from './api/routes/user.route';
-// import MatchRouter from './api/routes/Match.router';
 import ErrorHandler from './api/middlewares/errorHandler';
+import LoginRouter from './api/routes/user.route';
 // import LeaderboardRouter from './api/routers/Leaderboard.router';
+// import MatchRouter from './api/routes/Match.router';
 import TeamRouter from './api/routes/teams.route';
 
 class App {
@@ -17,10 +17,13 @@ class App {
     this.app.get('/', (req, res) => res.json({ ok: true }));
   }
 
-  private config():void {
+  private config(): void {
     const accessControl: express.RequestHandler = (_req, res, next) => {
       res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
+      res.header(
+        'Access-Control-Allow-Methods',
+        'GET,POST,DELETE,OPTIONS,PUT,PATCH',
+      );
       res.header('Access-Control-Allow-Headers', '*');
       next();
     };
@@ -29,7 +32,7 @@ class App {
     this.app.use(accessControl);
   }
 
-  private loadRoutes():void {
+  private loadRoutes(): void {
     this.app.use('/teams', TeamRouter);
     this.app.use('/login', LoginRouter);
     // this.app.use('/matches', MatchRouter);
@@ -38,7 +41,7 @@ class App {
     this.app.use(ErrorHandler.handler);
   }
 
-  public start(PORT: string | number):void {
+  public start(PORT: string | number): void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
   }
 }

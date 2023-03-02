@@ -10,7 +10,8 @@ const config: JWT.SignOptions = {
 };
 const secretJwt = process.env.JWT_SECRET || 'fpdsmecn';
 
-const generateToken = (userInfo: IUser) => JWT.sign(userInfo, secretJwt, config);
+const generateToken = (userInfo: IUser) =>
+  JWT.sign(userInfo, secretJwt, config);
 
 export const decodeToken = (token: string) => {
   try {

@@ -9,7 +9,11 @@ class UserController implements ILoginController {
     this.service = service;
   }
 
-  async findRole(req: Request, res: Response, next: NextFunction): Promise<void | Response> {
+  async findRole(
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void | Response> {
     try {
       const token = req.headers.authorization as string;
       const infoUser = decodeToken(token) as IUser;
@@ -20,7 +24,11 @@ class UserController implements ILoginController {
     }
   }
 
-  async login(req: Request, res: Response, next: NextFunction): Promise<void | Response> {
+  async login(
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void | Response> {
     try {
       const infoUser = req.body;
       const token = await this.service.login(infoUser);
