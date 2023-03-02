@@ -5,9 +5,9 @@ class User extends Model {
   declare readonly id: number;
 
   declare username: string;
-  declare role: number;
+  declare role: string;
   declare email: number;
-  declare password: number;
+  declare password: string;
 }
 
 User.init({

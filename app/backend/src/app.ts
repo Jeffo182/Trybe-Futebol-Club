@@ -1,5 +1,9 @@
 import * as express from 'express';
-import teamRouter from './api/routes/teams.route';
+import LoginRouter from './api/routes/user.route';
+// import MatchRouter from './api/routes/Match.router';
+import ErrorHandler from './api/middlewares/errorHandler';
+// import LeaderboardRouter from './api/routers/Leaderboard.router';
+import TeamRouter from './api/routes/teams.route';
 
 class App {
   public app: express.Express;
@@ -8,14 +12,9 @@ class App {
     this.app = express();
 
     this.config();
-
+    this.loadRoutes();
     // Não remover essa rota
-    this.app.get('/', (_req, res) => res.json({ ok: true }));
-    this.routes();
-  }
-
-  private routes(): void {
-    this.app.use('/teams', teamRouter);
+    this.app.get('/', (req, res) => res.json({ ok: true }));
   }
 
   private config():void {
@@ -28,6 +27,15 @@ class App {
 
     this.app.use(express.json());
     this.app.use(accessControl);
+  }
+
+  private loadRoutes():void {
+    this.app.use('/teams', TeamRouter);
+    this.app.use('/login', LoginRouter);
+    // this.app.use('/matches', MatchRouter);
+    // this.app.use('/leaderboard', LeaderboardRouter);
+
+    this.app.use(ErrorHandler.handler);
   }
 
   public start(PORT: string | number):void {
