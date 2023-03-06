@@ -52,21 +52,21 @@ const teams = [
 ];
 
 let id = 1;
-export const mockModelTeamsGetAll = teams.map(({ team_name }) => {
+ const mockModelTeamsGetAll = teams.map(({ team_name }) => {
   return new Team({ id: id++, teamName: team_name });
 });
 
-export const mockRouteResponseGetAll = mockModelTeamsGetAll.map(
+ const mockRouteResponseGetAll = mockModelTeamsGetAll.map(
   ({ dataValues }) => {
     return dataValues;
   }
 );
 
-export const mockModelTeamGetById = new Team({ id: 5, TeamName: "Cruzeiro" });
+ const mockModelTeamGetById = new Team({ id: 5, TeamName: "Cruzeiro" });
 
-export const mockRouteResponseGetById = mockModelTeamGetById.dataValues;
+ const mockRouteResponseGetById = mockModelTeamGetById.dataValues;
 
-export const teamsFindAllValid = [
+ const teamsFindAllValid = [
   {
     id: 1,
     teamName: "Avaí/Kindermann",
@@ -77,9 +77,19 @@ export const teamsFindAllValid = [
   },
 ];
 
-export const teamsFindAllInvalid = [
+ const teamsFindAllInvalid = [
   {
     id: 1,
     teamName: "Avaí/Kindermann",
   },
 ];
+
+export const TeamMocks = {
+  teams,
+  mockModelTeamsGetAll,
+  mockRouteResponseGetAll,
+  mockModelTeamGetById,
+  mockRouteResponseGetById,
+  teamsFindAllValid,
+  teamsFindAllInvalid
+}

@@ -2,7 +2,7 @@ import * as express from 'express';
 import ErrorHandler from './api/middlewares/errorHandler';
 import LoginRouter from './api/routes/user.route';
 // import LeaderboardRouter from './api/routers/Leaderboard.router';
-// import MatchRouter from './api/routes/Match.router';
+import MatchRouter from './api/routes/match.route';
 import TeamRouter from './api/routes/teams.route';
 
 class App {
@@ -35,7 +35,7 @@ class App {
   private loadRoutes(): void {
     this.app.use('/teams', TeamRouter);
     this.app.use('/login', LoginRouter);
-    // this.app.use('/matches', MatchRouter);
+    this.app.use('/matches', MatchRouter);
     // this.app.use('/leaderboard', LeaderboardRouter);
 
     this.app.use(ErrorHandler.handler);

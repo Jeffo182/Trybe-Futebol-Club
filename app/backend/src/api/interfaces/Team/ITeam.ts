@@ -4,6 +4,9 @@ export interface ITeam {
   id: number;
   teamName: string
 }
+export interface ITeamName {
+  teamName: string
+}
 
 interface ITeamsService {
   getAll(): Promise<ITeam[]>,
