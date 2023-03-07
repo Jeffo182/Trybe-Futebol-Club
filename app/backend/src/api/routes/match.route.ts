@@ -6,7 +6,7 @@ import MatchService from '../services/match.service';
 
 const matchService = new MatchService();
 const matchController = new MatchController(matchService);
-
+// class Route
 class MatchRouter {
   readonly route: Router;
 

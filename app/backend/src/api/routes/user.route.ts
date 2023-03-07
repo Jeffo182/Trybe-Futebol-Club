@@ -6,7 +6,7 @@ import UserService from '../services/user.service';
 
 const basedService = new UserService();
 const basedController = new UserController(basedService);
-
+// class Route
 class UserRouter {
   readonly route: Router;
 
