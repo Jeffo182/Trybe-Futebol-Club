@@ -1,4 +1,5 @@
-# Projeto Trybe Futebol Clube API + front-end
+# Projeto Fullstack: Trybe Futebol Clube
+
 Projeto realizado durante módulo de Back-end do curso de desenvolvimento web da Trybe.
 
 Sistema de gestão do Campeonato Brasileiro (Série A1).
